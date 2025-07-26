@@ -7,8 +7,11 @@
 		<link rel="stylesheet" href="main.css">
 	</head>
 <body>
-<h1>0re0re blog</h1>
-<h3>記事一覧</h3>
+	<h1 class="logo"><a href="http://mymyserver.daemon.asia">0re0re blog</a></h1>
+
+	<div class="row"><h3>記事一覧</h3>
+			<input id="searchBox" type="search" name="q" placeholder="Enter to 🔎" >
+	</div>
 <hr>
 <div id="posts"></div>
 <script>
@@ -19,6 +22,15 @@ fetch('posts.json')
 	    posts.innerHTML += `<h4><a  href="${p.url}">${p.title}</h4></a><p class="flex1">${p.date}<small>${p.tags.join(', ')}</small></p>`;
     });
   });
+document.getElementById('searchBox').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+
+    const query = this.value.trim();
+    if (!query) return; 
+	  alert(query);
+	   }
+});
 </script>
 </body>
 </html>

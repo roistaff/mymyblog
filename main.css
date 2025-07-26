@@ -4,6 +4,15 @@ body{
 	font-weight: 400;
 	font-style: normal;
 }
+.row input{
+	height:1.5rem;
+	margin:auto;
+	width:25%;	
+}
+.logo a{
+	text-decoration:none;
+	color:black;
+}
 #post {
 	margin-left:0px;
 }
