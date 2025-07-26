@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Waylandがゴミすぎる件について",
+    "date": "2025-07-27",
+    "tags": [
+      "Linux",
+      "X11",
+      "Wayland"
+    ],
+    "url": "public/wayland-gomi.html"
+  },
+  {
+    "title": "ブログ公開しました。",
+    "date": "2025-07-26",
+    "tags": [
+      "Linux",
+      "hello"
+    ],
+    "url": "public/hello.html"
+  }
+]
