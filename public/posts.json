@@ -5,7 +5,8 @@
     "tags": [
       "Linux",
       "X11",
-      "Wayland"
+      "Wayland",
+      "Unix"
     ],
     "url": "public/unix-tetsugaku.html"
   },
