@@ -4,9 +4,5 @@
  -->
 # 「Unixという考え方」を読んだ
 > small is beautiful.
-
 [Amazon 「Unixという考え方」](https://amzn.asia/d/1fWL3Hk)
 
-```bash
-echo hello
-```
