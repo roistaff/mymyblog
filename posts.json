@@ -1,13 +1,14 @@
 [
   {
-    "title": "Waylandがゴミすぎる件について",
+    "title": "Unix哲学読んでみた",
     "date": "2025-07-27",
     "tags": [
       "Linux",
       "X11",
-      "Wayland"
+      "Wayland",
+      "Unix"
     ],
-    "url": "public/wayland-gomi.html"
+    "url": "public/unix-tetsugaku.html"
   },
   {
     "title": "ブログ公開しました。",

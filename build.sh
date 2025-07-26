@@ -24,4 +24,4 @@ for file in $(ls -1 -t posts/); do
 
 	echo  "-------------------------------"
 done
-echo $f_json | jq . > public/posts.json
+echo $f_json | jq . > posts.json
