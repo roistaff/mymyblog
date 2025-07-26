@@ -18,13 +18,15 @@
 いろいろ酷評の多いChromebookですが、最大の難点は機能が限られているということです。Androidアプリが(なんとか)動くとはいえ、ほとんどのアプリはブラウザだけで動かされ、拡張性のかの字もありません。<del>はっきり言ってゴミです</del><br />
 そんなChromebookを、Ultrabookにする方法が一つあります。それはLinuxをインストールすることです。<br />
 実はChromeOSでは開発環境としてLinuxをインストールする事ができます。しかしこれはあくまでも仮想環境であり、遅いのに加えデスクトップなどが変るわけではないのであまり実用性がありません。そこでChromebookにLinuxやその他のOS(Windowsなど)をインストール可能にする方法を紹介したいと思います。<br />
-是非ChromebookにLinuxをインストールして自由世界への一歩を踏み出しましょう。<br />
-## なぜChromebookにカスタムOSを入れることが難しいのか<br />
-実際、そこまで難しくありません。システム構造的に入れることが難しいというだけの話です。<br />
+是非ChromebookにLinuxをインストールして自由世界への一歩を踏み出しましょう。</p>
+<h2
+id="なぜchromebookにカスタムosを入れることが難しいのか">なぜChromebookにカスタムOSを入れることが難しいのか</h2>
+<p>実際、そこまで難しくありません。システム構造的に入れることが難しいというだけの話です。<br />
 ChromebookはデフォルトでUEFIブートをサポートしていなく、これをを可能にするためにBIOSをROMに書き込む必要があります。問題はカスタムROMを書き込むことが多くの場合ハードウェアレベルで制限されており、ハードウェアレベルでの操作が必要になるということです。<br />
-ただChromebookにカスタムOSをインストールする手順はすでに有志の方によって開拓されており、マニュアルを見ながら簡単に挑戦することができます。<br />
-## <a href="https://mrchromebox.tech">mrchromebox.tech</a><br />
-ChromeOSからの脱却の道を示してくれた有志の方です。感謝感謝です。</p>
+ただChromebookにカスタムOSをインストールする手順はすでに有志の方によって開拓されており、マニュアルを見ながら簡単に挑戦することができます。</p>
+<h2 id="mrchromebox.tech"><a
+href="https://mrchromebox.tech">mrchromebox.tech</a></h2>
+<p>ChromeOSからの脱却の道を示してくれた有志の方です。感謝感謝です。</p>
 <h1 id="打倒chromeosまでの流れ">打倒ChromeOSまでの流れ</h1>
 <ol type="1">
 <li>デバイスをデベロッパーモードに移行</li>
@@ -52,9 +54,9 @@ src="https://storage.googleapis.com/zenn-user-upload/95bfe65e256c-20250607.png" 
 <code>Ctrl</code> + <code>D</code>
 「OSの確認機能をオフにするようんたらかんたら」<code>Enter</code><br />
 しばらく待つとデベロッパーモードで起動、そのまま自分のアカウントでログイン<br />
-※デベロッパーモードで起動するたびに「OSの確認機能がオフになっています」みたいな感じでオンにするように催促がでてきますがしばらく待てば勝手に起動しますのでスルー。<br />
-## ハードウェアブロックの解除<br />
-機種によってハードウェアブロックの種類が異なりますが大抵は以下の四つのどれかでできます。</p>
+※デベロッパーモードで起動するたびに「OSの確認機能がオフになっています」みたいな感じでオンにするように催促がでてきますがしばらく待てば勝手に起動しますのでスルー。</p>
+<h2 id="ハードウェアブロックの解除">ハードウェアブロックの解除</h2>
+<p>機種によってハードウェアブロックの種類が異なりますが大抵は以下の四つのどれかでできます。</p>
 <ul>
 <li>保護ネジの除去(Write Protect Screw)</li>
 <li>バッテリーの取り外し(Unplag battery)</li>
@@ -69,9 +71,10 @@ https://docs.chrultrabook.com/docs/devices.html</p>
 src="https://storage.googleapis.com/zenn-user-upload/bfac71846c58-20250607.png" />
 <img
 src="https://storage.googleapis.com/zenn-user-upload/17cd80ee848c-20250607.png" /></p>
-<p>両デバイスともバッテリーの一時除去によってハードウェアロックの解除が可能です。<br />
-## ソフトウェアブロックの解除<br />
-デベロッパーモードでログイン後、<code>Ctrl</code> + <code>Alt</code> +
+<p>両デバイスともバッテリーの一時除去によってハードウェアロックの解除が可能です。</p>
+<h2 id="ソフトウェアブロックの解除">ソフトウェアブロックの解除</h2>
+<p>デベロッパーモードでログイン後、<code>Ctrl</code> + <code>Alt</code>
++
 <code>→(リフレッシュキーの隣の右矢印)</code>でVT2ターミナルを開く<code>root</code>でログイン(パスワードはデフォルトで設定されていない)</p>
 <pre><code>flashrom --wp-disable</code></pre>
 <p>実行後、<code>crossystem | grep wpsw</code>で</p>
@@ -119,7 +122,8 @@ src="https://storage.googleapis.com/zenn-user-upload/114257ba3256-20250607.png" 
 低スペックかつ初心者ならLinux
 Mintが一番良いと思われます。かなりサクサクだし、いろんなものがデフォルトで揃っています。サポートもまぁまぁ。
 ドライバに関してはなんやかんや対応されています。Wifi、オーディオに関してはあまりトラブルはありませんでした。
-Windowsは？ そんなもん知らん(一応入る) ## 役に立つサイトなど</p>
+Windowsは？ そんなもん知らん(一応入る)</p>
+<h2 id="役に立つサイトなど">役に立つサイトなど</h2>
 <p>https://docs.mrchromebox.tech/</p>
 <p>https://docs.chrultrabook.com/</p>
 <p>https://shimota.app/chromebook_to_developmode/</p>
