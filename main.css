@@ -4,6 +4,9 @@ body{
 	font-weight: 400;
 	font-style: normal;
 }
+.info {
+	text-align:right;
+}
 .row input{
 	height:1.5rem;
 	margin:auto;
@@ -26,6 +29,10 @@ body{
 	padding-left:0.6rem;
 }
 #posts a{
+	text-decoration:none;
+	color:black;
+}
+.info a{
 	text-decoration:none;
 	color:black;
 }
