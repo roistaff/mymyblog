@@ -1,3 +1,4 @@
+#!/bin/bash
 num=$(ls -1 posts/ | wc -l)
 count=0
 f_json=""
