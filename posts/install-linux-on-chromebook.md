@@ -154,4 +154,6 @@ https://www.chromium.org/chromium-os/developer-library/guides/device/ro-firmware
 https://shivankaul.com/blog/editing-read-only-files-chromebook
 
 https://chromium.googlesource.com/chromiumos/docs/+/master/write_protection.md
+
 ## これで君も自由世界の一員だ!
+
