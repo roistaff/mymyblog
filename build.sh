@@ -9,7 +9,7 @@ for file in $(ls -1 -t posts/); do
 	tags=$(cat "posts/${file}" | grep -oP 'Tags:"\K[^"]+')
 	echo "${title} | ${date} | ${tags}"
 	echo "generate html..."
-	pandoc ${filename} --template=main.html --metadata title=${title} --metadata date=${date} --metadata tags=${tags} -o "public/${file%.md}.html"
+	pandoc ${filename} --highlight-style=pygments --template=main.html --metadata title=${title} --metadata date=${date} --metadata tags=${tags} -o "public/${file%.md}.html"
 	echo "generate json"
 	json_tags=$(echo "$tags" | sed 's/,/","/g' | sed 's/^/"/;s/$/"/')
 	json=$(printf '{"title":"%s","date":"%s","tags":[%s],"url":"%s"}' $title $date $json_tags "public/${file%.md}.html")
