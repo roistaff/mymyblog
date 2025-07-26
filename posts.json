@@ -1,5 +1,15 @@
 [
   {
+    "title": "ブログ公開しました。",
+    "date": "2025-07-26",
+    "tags": [
+      "Linux",
+      "hello",
+      "server"
+    ],
+    "url": "public/hello.html"
+  },
+  {
     "title": "Unix哲学読んでみた",
     "date": "2025-07-27",
     "tags": [
@@ -9,14 +19,5 @@
       "Unix"
     ],
     "url": "public/unix-tetsugaku.html"
-  },
-  {
-    "title": "ブログ公開しました。",
-    "date": "2025-07-26",
-    "tags": [
-      "Linux",
-      "hello"
-    ],
-    "url": "public/hello.html"
   }
 ]
