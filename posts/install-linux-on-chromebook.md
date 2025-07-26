@@ -2,18 +2,18 @@
      Tags:"Linux,chromebook"
      Date:"2025-06-08"
 -->
-みなさんChromebookをお持ちでしょうか。
-我が国では2019年からGIGAスクール構想が始まり生徒のPC所持が必須になりました。その過程でChromebookを所持する事になった学生の方も多いと思います。
-いろいろ酷評の多いChromebookですが、最大の難点は機能が限られているということです。Androidアプリが(なんとか)動くとはいえ、ほとんどのアプリはブラウザだけで動かされ、拡張性のかの字もありません。~~はっきり言ってゴミです~~
-そんなChromebookを、Ultrabookにする方法が一つあります。それはLinuxをインストールすることです。
-実はChromeOSでは開発環境としてLinuxをインストールする事ができます。しかしこれはあくまでも仮想環境であり、遅いのに加えデスクトップなどが変るわけではないのであまり実用性がありません。そこでChromebookにLinuxやその他のOS(Windowsなど)をインストール可能にする方法を紹介したいと思います。
-是非ChromebookにLinuxをインストールして自由世界への一歩を踏み出しましょう。
+みなさんChromebookをお持ちでしょうか。  
+我が国では2019年からGIGAスクール構想が始まり生徒のPC所持が必須になりました。その過程でChromebookを所持する事になった学生の方も多いと思います。  
+いろいろ酷評の多いChromebookですが、最大の難点は機能が限られているということです。Androidアプリが(なんとか)動くとはいえ、ほとんどのアプリはブラウザだけで動かされ、拡張性のかの字もありません。~~はっきり言ってゴミです~~  
+そんなChromebookを、Ultrabookにする方法が一つあります。それはLinuxをインストールすることです。  
+実はChromeOSでは開発環境としてLinuxをインストールする事ができます。しかしこれはあくまでも仮想環境であり、遅いのに加えデスクトップなどが変るわけではないのであまり実用性がありません。そこでChromebookにLinuxやその他のOS(Windowsなど)をインストール可能にする方法を紹介したいと思います。  
+是非ChromebookにLinuxをインストールして自由世界への一歩を踏み出しましょう。  
 ## なぜChromebookにカスタムOSを入れることが難しいのか
-実際、そこまで難しくありません。システム構造的に入れることが難しいというだけの話です。
-ChromebookはデフォルトでUEFIブートをサポートしていなく、これをを可能にするためにBIOSをROMに書き込む必要があります。問題はカスタムROMを書き込むことが多くの場合ハードウェアレベルで制限されており、ハードウェアレベルでの操作が必要になるということです。
-ただChromebookにカスタムOSをインストールする手順はすでに有志の方によって開拓されており、マニュアルを見ながら簡単に挑戦することができます。
+実際、そこまで難しくありません。システム構造的に入れることが難しいというだけの話です。  
+ChromebookはデフォルトでUEFIブートをサポートしていなく、これをを可能にするためにBIOSをROMに書き込む必要があります。問題はカスタムROMを書き込むことが多くの場合ハードウェアレベルで制限されており、ハードウェアレベルでの操作が必要になるということです。  
+ただChromebookにカスタムOSをインストールする手順はすでに有志の方によって開拓されており、マニュアルを見ながら簡単に挑戦することができます。  
 ## [mrchromebox.tech](https://mrchromebox.tech)
-ChromeOSからの脱却の道を示してくれた有志の方です。感謝感謝です。
+ChromeOSからの脱却の道を示してくれた有志の方です。感謝感謝です。  
 
 # 打倒ChromeOSまでの流れ
 1. デバイスをデベロッパーモードに移行
@@ -28,7 +28,7 @@ ChromeOSからの脱却の道を示してくれた有志の方です。感謝感
 - USB(できれば2つ)一つはOSイメージのブート用、もう一つはROMのバックアップ
 - 電源ケーブル
 - ドライバー
-今回浄化していくデバイスはこちら
+今回浄化していくデバイスはこちら  
 Acer R752TG2
 ![](https://storage.googleapis.com/zenn-user-upload/1f8d2f649f32-20250607.png)
 Lenovo 300e 2nd Gen
@@ -37,11 +37,11 @@ Lenovo 300e 2nd Gen
 ## デベロッパーモードへの移行
 
 ※データが全て吹っ飛びます  
-定番のやつです。
-基本的に`Esc`+`リフレッシュポタン`を押しながら起動「OSが破損しているうんたらかんたら」
-`Ctrl` + `D` 「OSの確認機能をオフにするようんたらかんたら」`Enter`
-しばらく待つとデベロッパーモードで起動、そのまま自分のアカウントでログイン
-※デベロッパーモードで起動するたびに「OSの確認機能がオフになっています」みたいな感じでオンにするように催促がでてきますがしばらく待てば勝手に起動しますのでスルー。
+定番のやつです。  
+基本的に`Esc`+`リフレッシュポタン`を押しながら起動「OSが破損しているうんたらかんたら」  
+`Ctrl` + `D` 「OSの確認機能をオフにするようんたらかんたら」`Enter`  
+しばらく待つとデベロッパーモードで起動、そのまま自分のアカウントでログイン  
+※デベロッパーモードで起動するたびに「OSの確認機能がオフになっています」みたいな感じでオンにするように催促がでてきますがしばらく待てば勝手に起動しますのでスルー。  
 ## ハードウェアブロックの解除
 機種によってハードウェアブロックの種類が異なりますが大抵は以下の四つのどれかでできます。
 
@@ -50,16 +50,16 @@ Lenovo 300e 2nd Gen
 - Jumper(基盤の二つの穴をショートさせる)
 - SuzyQケーブル(CCD closed case debugging)
 
-SuzyQケーブルについては実際に入手していないのでわからないのですが、ChromeOSデバイスをデバッグするために作られた専用のケーブルらしいです。詳しくは本家を参照してみてください
-https://docs.mrchromebox.tech/docs/firmware/wp/disabling.html
-デバイス別のハードウェアブロックの一覧表は以下を参照してください。
+SuzyQケーブルについては実際に入手していないのでわからないのですが、ChromeOSデバイスをデバッグするために作られた専用のケーブルらしいです。詳しくは本家を参照してみてください  
+https://docs.mrchromebox.tech/docs/firmware/wp/disabling.html  
+デバイス別のハードウェアブロックの一覧表は以下を参照してください。  
 https://docs.chrultrabook.com/docs/devices.html
 
 今回のデバイスの場合以下が該当します。
 ![](https://storage.googleapis.com/zenn-user-upload/bfac71846c58-20250607.png)
 ![](https://storage.googleapis.com/zenn-user-upload/17cd80ee848c-20250607.png)
 
-両デバイスともバッテリーの一時除去によってハードウェアロックの解除が可能です。
+両デバイスともバッテリーの一時除去によってハードウェアロックの解除が可能です。  
 ## ソフトウェアブロックの解除
 デベロッパーモードでログイン後、`Ctrl` + `Alt` + `→(リフレッシュキーの隣の右矢印)`でVT2ターミナルを開く`root`でログイン(パスワードはデフォルトで設定されていない)
 ```
@@ -69,7 +69,7 @@ flashrom --wp-disable
 ```
 wpsw_cur                = 0
 ```
-となっていれば成功。おめでとうございます。
+となっていれば成功。おめでとうございます。   
 
  ※2023年以降の多くのChromeOSデバイスではセキュリティチップにTi50を使用しており、別のコマンドを使用します。
 
@@ -85,7 +85,7 @@ gsctool -a -I AllowUnverifiedRo:always
 flashrom --wp-disable
 ```
 詳しくは以下を参照
-https://www.chromium.org/chromium-os/developer-library/guides/device/ro-firmware-unlock/
+https://www.chromium.org/chromium-os/developer-library/guides/device/ro-firmware-unlock/  
 
 
 ## ファイルシステムの書き込み権限の変更
@@ -93,13 +93,11 @@ https://www.chromium.org/chromium-os/developer-library/guides/device/ro-firmware
 ```
 sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions 2
 ```
-で権限を変更します。再起動後、書き込みが可能になっているはずです(別にrootじゃなくてlocalhostでログインすれば書き込みできるっぽい？)
-:::message
-うまくいかない場合は--forceオプションをつけるとよいらしい
+で権限を変更します。再起動後、書き込みが可能になっているはずです(別にrootじゃなくてlocalhostでログインすれば書き込みできるっぽい？)  
+※うまくいかない場合は--forceオプションをつけるとよいらしい
 ```
 sudo /usr/share/vboot/bin/make_dev_ssd.sh --force -remove_rootfs_verification
 ```
-:::
 ## スクリプトの実行
 [MrChromebox.techのスクリプト](https://docs.mrchromebox.tech/docs/fwscript.html)です。感謝感謝。
 ```
