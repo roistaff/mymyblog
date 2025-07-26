@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>広告ブロッカーでもう二度と広告を見ない | 0re0re blog</title>
+		<link rel="stylesheet" href="../default.css">
+		<link rel="stylesheet" href="../pygments.css">
+		<link rel="stylesheet" href="../main.css">
+	</head>
+<body>
+	<p class="info"><a href="../index.html">0re0re_blog ></a> 広告ブロッカーでもう二度と広告を見ない</p><p>2025-07-27 | <small>Internet,free</small></p>
+<!-- Title:"広告ブロッカーでもう二度と広告を見ない"  
+     Tags:"Internet,free"
+     Date:"2025-07-27"
+-->
+<h2 id="web初心者向けです">Web初心者向けです</h2>
+<p><a href="https://ublockorigin.com/jp">Ublock Origin</a>
+世界最高級の広告ブロッカー。<br />
+ブラウザに導入することでウェブサイトのあらゆる広告(Youtube,niconico等)をブロックできる。
+推奨ブラウザはFirefox。拡張機能のページから普通に追加することができる。<br />
+以前はChromeといったChromiumベースのブラウザでも利用できたが、ChromiumがManifestV2からv3に移行しv2を段階的に廃止する方針に転換したため、そのままでは使えなくなった。<br />
+ちなみに<a
+href="https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=ja">Chrome
+Web Store</a>にあるこちらは使えない。<br />
+また公式がManifestV3に対応したUblock origin
+Liteをリリースしていが、本当にLiteなので本家のような抑止力は持ち合わせていない。</p>
+<p>ブラウザで言えばBraveなどに乗り換えることもおすすめ。</p>
+<h2
+id="chromiumベースのブラウザにublock-originを導入する方法">ChromiumベースのブラウザにUblock
+Originを導入する方法</h2>
+<p>Chromiumベースのブラウザではいくつかのflagsを有効化してデベロッパーモードでパッケージ化されていないものを公式githubリポからダウンロードしてインポートする。</p>
+<p><a href="https://github.com/gorhill/uBlock">Ublock Origin Github</a>
+<a
+href="https://github.com/gorhill/uBlock/releases/">Githubのリリース</a>からublock
+???.chromium.zipをダウンロードしてそこら辺に解凍</p>
+<p><img src="https://i.imgur.com/m268Gvt.png" />
+ブラウザで拡張機能のページからデヴェロッパーモードをオンにしてload
+unpacked (パッケージ化されていない拡張機能を読み込む) &gt;
+解凍したフォルダを選択する <img src="https://i.imgur.com/0GRxGgq.png" />
+エラーが出るが無視</p>
+<h3 id="flagsを有効化">Flagsを有効化</h3>
+<p>chrome://flags →manifest v2を検索し以下のように設定 <img
+src="https://i.imgur.com/umdiWBm.png" /></p>
+<p>→ allow legacy <img src="https://i.imgur.com/LoIQbDG.png" /></p>
+<p>以上でブラウザを再起動すれば広告がブロックされるようになります。 <img
+src="https://i.imgur.com/YoEPnku.png" /></p>
+
+</body>
+</html>
