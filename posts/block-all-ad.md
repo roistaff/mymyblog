@@ -9,7 +9,7 @@
 推奨ブラウザはFirefox。拡張機能のページから普通に追加することができる。  
 以前はChromeといったChromiumベースのブラウザでも利用できたが、ChromiumがManifestV2からv3に移行しv2を段階的に廃止する方針に転換したため、そのままでは使えなくなった。  
 ちなみに[Chrome Web Store](https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=ja)にあるこちらは使えない。  
-また公式がManifestV3に対応したUblock origin Liteをリリースしていが、本当にLiteなので本家のような抑止力は持ち合わせていない。
+また公式がManifestV3に対応したUblock origin Liteをリリースしているが、本当にLiteなので本家のような抑止力は持ち合わせていない。
 
 ブラウザで言えばBraveなどに乗り換えることもおすすめ。
 
