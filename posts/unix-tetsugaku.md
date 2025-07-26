@@ -1,5 +1,5 @@
 <!-- Title:"Unix哲学読んでみた" 
-     Tags:"Linux,X11,Wayland"
+     Tags:"Linux,X11,Wayland,Unix"
      Date:"2025-07-27"
  -->
 # 「Unixという考え方」
