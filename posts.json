@@ -1,14 +1,12 @@
 [
   {
-    "title": "Unix哲学読んでみた",
-    "date": "2025-07-27",
+    "title": "全学生に知ってもらいたいChromebookにlinuxをクリーンインストールする方法",
+    "date": "2025-06-08",
     "tags": [
       "Linux",
-      "X11",
-      "Wayland",
-      "Unix"
+      "chromebook"
     ],
-    "url": "public/unix-tetsugaku.html"
+    "url": "public/install-linux-on-chromebook.html"
   },
   {
     "title": "ブログ公開しました。",

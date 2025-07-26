@@ -5,7 +5,8 @@
 # 「Unixという考え方」を読んだ
 > small is beautiful.  
 
-  通称 UNIX哲学で有名な[「Unixという考え方」](https://amzn.asia/d/1fWL3Hk)を読みました。
+  通称"UNIX哲学"で有名な[「Unixという考え方」](https://amzn.asia/d/1fWL3Hk)を読みました。
+
 
 
 

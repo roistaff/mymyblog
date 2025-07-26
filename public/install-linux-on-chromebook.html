@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>全学生に知ってもらいたいChromebookにlinuxをクリーンインストールする方法 | 0re0re blog</title>
+		<link rel="stylesheet" href="../default.css">
+		<link rel="stylesheet" href="../pygments.css">
+		<link rel="stylesheet" href="../main.css">
+	</head>
+<body>
+	<p class="info"><a href="../index.html">0re0re_blog ></a> 全学生に知ってもらいたいChromebookにlinuxをクリーンインストールする方法</p><p>2025-06-08 | <small>Linux,chromebook</small></p>
+<!-- Title:"全学生に知ってもらいたいChromebookにlinuxをクリーンインストールする方法"  
+     Tags:"Linux,chromebook"
+     Date:"2025-06-08"
+-->
+<p>みなさんChromebookをお持ちでしょうか。
+我が国では2019年からGIGAスクール構想が始まり生徒のPC所持が必須になりました。その過程でChromebookを所持する事になった学生の方も多いと思います。
+いろいろ酷評の多いChromebookですが、最大の難点は機能が限られているということです。Androidアプリが(なんとか)動くとはいえ、ほとんどのアプリはブラウザだけで動かされ、拡張性のかの字もありません。<del>はっきり言ってゴミです</del>
+そんなChromebookを、Ultrabookにする方法が一つあります。それはLinuxをインストールすることです。
+実はChromeOSでは開発環境としてLinuxをインストールする事ができます。しかしこれはあくまでも仮想環境であり、遅いのに加えデスクトップなどが変るわけではないのであまり実用性がありません。そこでChromebookにLinuxやその他のOS(Windowsなど)をインストール可能にする方法を紹介したいと思います。
+是非ChromebookにLinuxをインストールして自由世界への一歩を踏み出しましょう。
+## なぜChromebookにカスタムOSを入れることが難しいのか
+実際、そこまで難しくありません。システム構造的に入れることが難しいというだけの話です。
+ChromebookはデフォルトでUEFIブートをサポートしていなく、これをを可能にするためにBIOSをROMに書き込む必要があります。問題はカスタムROMを書き込むことが多くの場合ハードウェアレベルで制限されており、ハードウェアレベルでの操作が必要になるということです。
+ただChromebookにカスタムOSをインストールする手順はすでに有志の方によって開拓されており、マニュアルを見ながら簡単に挑戦することができます。
+## <a href="https://mrchromebox.tech">mrchromebox.tech</a>
+ChromeOSからの脱却の道を示してくれた有志の方です。感謝感謝です。</p>
+<h1 id="打倒chromeosまでの流れ">打倒ChromeOSまでの流れ</h1>
+<ol type="1">
+<li>デバイスをデベロッパーモードに移行</li>
+<li>ハードウェアロックの除去</li>
+<li>ソフトウェアロックの解除</li>
+<li>ファイルシステムへの書き込みの権限を取得</li>
+<li>MrChromebox.techのスクリプトを実行</li>
+<li>USBブートでOSをインストール!</li>
+</ol>
+<h3 id="事前準備">事前準備</h3>
+<ul>
+<li>Chromebook(管理対象ではなく、個人のアカウントでログインしているものが必要です。ゲストモードで起動しようとするとデベロッパーモードの権限が上書きされないので注意する必要があります)</li>
+<li>USB(できれば2つ)一つはOSイメージのブート用、もう一つはROMのバックアップ</li>
+<li>電源ケーブル</li>
+<li>ドライバー 今回浄化していくデバイスはこちら Acer R752TG2 <img
+src="https://storage.googleapis.com/zenn-user-upload/1f8d2f649f32-20250607.png" />
+Lenovo 300e 2nd Gen <img
+src="https://storage.googleapis.com/zenn-user-upload/95bfe65e256c-20250607.png" /></li>
+</ul>
+<h2 id="デベロッパーモードへの移行">デベロッパーモードへの移行</h2>
+<p>※データが全て吹っ飛びます<br />
+定番のやつです。
+基本的に<code>Esc</code>+<code>リフレッシュポタン</code>を押しながら起動「OSが破損しているうんたらかんたら」
+<code>Ctrl</code> + <code>D</code>
+「OSの確認機能をオフにするようんたらかんたら」<code>Enter</code>
+しばらく待つとデベロッパーモードで起動、そのまま自分のアカウントでログイン
+※デベロッパーモードで起動するたびに「OSの確認機能がオフになっています」みたいな感じでオンにするように催促がでてきますがしばらく待てば勝手に起動しますのでスルー。
+## ハードウェアブロックの解除
+機種によってハードウェアブロックの種類が異なりますが大抵は以下の四つのどれかでできます。</p>
+<ul>
+<li>保護ネジの除去(Write Protect Screw)</li>
+<li>バッテリーの取り外し(Unplag battery)</li>
+<li>Jumper(基盤の二つの穴をショートさせる)</li>
+<li>SuzyQケーブル(CCD closed case debugging)</li>
+</ul>
+<p>SuzyQケーブルについては実際に入手していないのでわからないのですが、ChromeOSデバイスをデバッグするために作られた専用のケーブルらしいです。詳しくは本家を参照してみてください
+https://docs.mrchromebox.tech/docs/firmware/wp/disabling.html
+デバイス別のハードウェアブロックの一覧表は以下を参照してください。
+https://docs.chrultrabook.com/docs/devices.html</p>
+<p>今回のデバイスの場合以下が該当します。 <img
+src="https://storage.googleapis.com/zenn-user-upload/bfac71846c58-20250607.png" />
+<img
+src="https://storage.googleapis.com/zenn-user-upload/17cd80ee848c-20250607.png" /></p>
+<p>両デバイスともバッテリーの一時除去によってハードウェアロックの解除が可能です。
+## ソフトウェアブロックの解除
+デベロッパーモードでログイン後、<code>Ctrl</code> + <code>Alt</code> +
+<code>→(リフレッシュキーの隣の右矢印)</code>でVT2ターミナルを開く<code>root</code>でログイン(パスワードはデフォルトで設定されていない)</p>
+<pre><code>flashrom --wp-disable</code></pre>
+<p>実行後、<code>crossystem | grep wpsw</code>で</p>
+<pre><code>wpsw_cur                = 0</code></pre>
+<p>となっていれば成功。おめでとうございます。</p>
+<p>※2023年以降の多くのChromeOSデバイスではセキュリティチップにTi50を使用しており、別のコマンドを使用します。</p>
+<pre><code>gsctool -a -o</code></pre>
+<p>Chromebookが再起動しデベロッパーモードが解除されるので再びデベロッパーモードで入る</p>
+<pre><code>gsctool -a -I AllowUnverifiedRo:always</code></pre>
+<p>電源ボタン押して確認を取る</p>
+<pre><code>flashrom --wp-disable</code></pre>
+<p>詳しくは以下を参照
+https://www.chromium.org/chromium-os/developer-library/guides/device/ro-firmware-unlock/</p>
+<h2
+id="ファイルシステムの書き込み権限の変更">ファイルシステムの書き込み権限の変更</h2>
+<p><code>root</code>でログインしたまま書き込み動作を行おうとうすると<code>Read only file system</code>と省かれてしまいます。このままだと後に実行するスクリプトもダウンロードできないので</p>
+<pre><code>sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions 2</code></pre>
+<p>で権限を変更します。再起動後、書き込みが可能になっているはずです(別にrootじゃなくてlocalhostでログインすれば書き込みできるっぽい？)
+:::message うまくいかない場合は–forceオプションをつけるとよいらしい</p>
+<pre><code>sudo /usr/share/vboot/bin/make_dev_ssd.sh --force -remove_rootfs_verification</code></pre>
+<p>::: ## スクリプトの実行 <a
+href="https://docs.mrchromebox.tech/docs/fwscript.html">MrChromebox.techのスクリプト</a>です。感謝感謝。</p>
+<pre><code>curl -LOk mrchromebox.tech/firmware-util.sh</code></pre>
+<pre><code>sudo bash firmware-util.sh</code></pre>
+<p>こんな感じ※lenovo 300e 2nd gen <img
+src="https://storage.googleapis.com/zenn-user-upload/4c871c08df29-20250607.jpg" />
+2を選択、後はスクリプトの指示通り。
+途中でROMのバックアップを取らされるのでUSBが必要です。<strong>FAT32</strong>でフォーマットして差す。
+<img
+src="https://storage.googleapis.com/zenn-user-upload/96d97279f7ab-20250607.jpg" /></p>
+<p>全て終れば再起動するとCustomSeaBIOSが入りUEFIブートが可能になります。
+<img
+src="https://storage.googleapis.com/zenn-user-upload/9d183979ca15-20250608.jpg" /></p>
+<p>USBでArch Linuxを起動↓</p>
+<p><img
+src="https://storage.googleapis.com/zenn-user-upload/fdffa2871234-20250607.jpg" />
+(archinstallを使う際は先にストレージを手動でフォーマットしないといけない)</p>
+<p><strong>お疲れ様でした。おめでとうございます。</strong>
+インストールが完了したらバッテリーを戻してあげましょう。
+ArchLinuxをぶちこんだ学校のChromebook × 4 <img
+src="https://storage.googleapis.com/zenn-user-upload/114257ba3256-20250607.png" /></p>
+<h2 id="osドライバなどについて">OS,ドライバなどについて</h2>
+<p>学校で使用されるChromeOSデバイスの平均スペックはあまり高くありません。メモリ4GBの32GBストレージ、そんなところが平均です。よってUbuntuみたいな重いOSで良い体験ができるとは思いません。
+低スペックかつ初心者ならLinux
+Mintが一番良いと思われます。かなりサクサクだし、いろんなものがデフォルトで揃っています。サポートもまぁまぁ。
+ドライバに関してはなんやかんや対応されています。Wifi、オーディオに関してはあまりトラブルはありませんでした。
+Windowsは？ そんなもん知らん(一応入る) ## 役に立つサイトなど
+https://docs.mrchromebox.tech/</p>
+<p>https://docs.chrultrabook.com/</p>
+<p>https://shimota.app/chromebook_to_developmode/</p>
+<p>https://www.chromium.org/chromium-os/developer-library/guides/device/ro-firmware-unlock/</p>
+<p>https://shivankaul.com/blog/editing-read-only-files-chromebook</p>
+<p>https://chromium.googlesource.com/chromiumos/docs/+/master/write_protection.md
+## これで君も自由世界の一員だ!</p>
+
+</body>
+</html>
