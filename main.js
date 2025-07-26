@@ -1,35 +1,30 @@
-let postData = ""
+let postData = [];
+
 fetch('posts.json')
   .then(r => r.json())
   .then(d => {
-	 postData = d
-    d.forEach(p => {
-	   posts.innerHTML += `<h4><a  href="${p.url}">${p.title}</h4></a><p class="flex1">${p.date}<small>${p.tags.join(', ')}</small></p>`;
-    });
-  });
-function searchPosts(keyword) {
-  const result = postData.filter(post => {
-    const combined = `${post.title} ${post.date} ${post.tags.join(' ')}`;
-    return combined.toLowerCase().includes(keyword.toLowerCase());
+    postData = d;
+    posts.innerHTML = d.map(p =>
+      `<h4><a href="${p.url}">${p.title}</a></h4><p class="flex1">${p.date}<small>${p.tags.join(', ')}</small></p>`
+    ).join('');
   });
 
-  const container = document.getElementById('posts');
-  if (result.length === 0) {
-    container.innerHTML = '<p>Not found</p>';
-    return;
-  }
+function searchPosts(q) {
+  const result = postData.filter(p =>
+    `${p.title} ${p.date} ${p.tags.join(' ')}`.toLowerCase().includes(q.toLowerCase())
+  );
 
-  container.innerHTML = result.map(post => `
-      <h4><a href="${post.url}">${post.title}</a></h4><p class="flex1">${post.date}<small>${post.tags.join(',')}</small></p>`);
+  posts.innerHTML = result.length ?
+    result.map(p =>
+      `<h4><a href="${p.url}">${p.title}</a></h4><p class="flex1">${p.date}<small>${p.tags.join(', ')}</small></p>`
+    ).join('')
+    : '<p>Not found</p>';
 }
-document.getElementById('searchBox').addEventListener('keydown', function(event) {
-  if (event.key === 'Enter') {
-    event.preventDefault();
 
-    const query = this.value.trim();
-    if (!query){
-	    window.location.href = "index.html"
-    } 
-	 searchPosts(query);
-	  }
+searchBox.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const q = searchBox.value.trim();
+    q ? searchPosts(q) : (location.href = 'index.html');
+  }
 });
