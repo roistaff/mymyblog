@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>PaperMCで爆速でMinecraftサーバーを建てる | 0re0re blog</title>
+		<link rel="stylesheet" href="../default.css">
+		<link rel="stylesheet" href="../pygments.css">
+		<link rel="stylesheet" href="../main.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+<body>
+	<p class="info"><a href="../index.html">0re0re_blog ></a> PaperMCで爆速でMinecraftサーバーを建てる</p><p>2025-08-01 | <small>Linux,Minecraft,server</small></p>
+<!-- Title:"PaperMCで爆速でMinecraftサーバーを建てる"  
+     Tags:"Linux,Minecraft,server"
+     Date:"2025-08-01"
+-->
+<h1
+id="minecraftサーバーを爆速で建てることができた">Minecraftサーバーを爆速で建てることができた</h1>
+<p><img src="https://i.imgur.com/90uy0zY.png" /></p>
+<h2 id="javaの導入">Javaの導入</h2>
+<p>Minecraftバージョンは1.20.1です。現在デフォルトで入るJavaのバージョンで大丈夫です</p>
+<pre><code>sudo apt install default-jre</code></pre>
+<pre><code>$ java --version
+openjdk 17.0.15 2025-04-15
+OpenJDK Runtime Environment (build 17.0.15+6-Debian-1deb12u1)
+OpenJDK 64-Bit Server VM (build 17.0.15+6-Debian-1deb12u1, mixed mode, sharing)</code></pre>
+<p>最新版のPaperMC(1.21.8とか)を利用するには公式リポジトリにはないと思うので各自ダウンロードする必要がありそうです。</p>
+<h2 id="papermcのダウンロード">PaperMCのダウンロード</h2>
+<p>適当にwgetなどでサーバーに配置してください。<br />
+ちなみに過去のPaperMCのリンクは以下で確認できます。<br />
+https://gist.github.com/osipxd/6119732e30059241c2192c4a8d2218d9</p>
+<h1 id="起動">起動</h1>
+<pre><code>java -server -Xms2G -Xmx2G -jar papermc.jar nogui</code></pre>
+<p>コマンドを実行した場所で設定ファイルやリソースファイルが作成されるので専用のディレクトリの中で実行することをおすすめします。</p>
+<p>初回起動ではEulaの規約に同意しろと騒ぐので<code>eula.txt</code>の<code>eula=false</code>を<code>eula=true</code>にします。</p>
+<h1 id="プラグイン">プラグイン</h1>
+<p>プラグインの導入も簡単です。プラグインファイルをコマンドを実行したディレクトリの中で作成される<code>plugins</code>というフォルダの中に設置するだけで良いです。</p>
+<h1 id="簡単に鯖を建てることができた">簡単に鯖を建てることができた</h1>
+<p><img src="https://i.imgur.com/n0MWPhr.png" /></p>
+
+</body>
+</html>
