@@ -1,6 +1,6 @@
 <!-- Title:"広告ブロッカーでもう二度と広告を見ない"  
      Tags:"Internet,free"
-     Date:"2025-07-27"
+     Date:"2025-09-24"
 -->
 
 ## Web初心者向けです
@@ -21,6 +21,17 @@ Chromiumベースのブラウザではいくつかのflagsを有効化してデ�
 
 ![](https://i.imgur.com/m268Gvt.png)
 ブラウザで拡張機能のページからデヴェロッパーモードをオンにしてload unpacked (パッケージ化されていない拡張機能を読み込む) > 解凍したフォルダを選択する
+
+# 2025 9/24 追記:Chromium 140ではそもそも読み込もうとしない
+![](https://i.imgur.com/P3Uy9NY.png)
+以下の方法で再度有効にできる。   
+chrome://flags で一番上に出てくるこの二つを有効にする
+![](https://i.imgur.com/yzQTuEN.png)
+また「manifest」で検索、出てくる「Allow legacy extensions...」を有効にする   
+![](https://i.imgur.com/u9usvkK.png)
+これで拡張機能を読み込むことができる。   
+ちなみにこれらのflagsは近い内に削除される予定なのでFirefoxへの速やかな移行をおすすめする。  
+
 ![](https://i.imgur.com/0GRxGgq.png)
 エラーが出るが無視
 
