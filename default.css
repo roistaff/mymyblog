@@ -168,6 +168,9 @@ input.center {
     .button a {
         color: var(--light);
     }
+    a{
+    color:white;
+}
 }
 
 /* Printing */
