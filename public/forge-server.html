@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>MinecraftのForgeサーバーをサクっと建てる | 0re0re blog</title>
+		<link rel="stylesheet" href="../default.css">
+		<link rel="stylesheet" href="../pygments.css">
+		<link rel="stylesheet" href="../main.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+<body>
+	<p class="info"><a href="../index.html">0re0re_blog ></a> MinecraftのForgeサーバーをサクっと建てる</p><p>2025-09-27 | <small>Linux,minecraft,server</small></p>
+<!-- Title:"MinecraftのForgeサーバーをサクっと建てる"
+     Tags:"Linux,minecraft,server"
+     Date:"2025-09-27"
+-->
+<h1
+id="forge1.20.1のmodサーバーをサクっと建てよう">Forge(1.20.1)のmodサーバーをサクっと建てよう</h1>
+<p>大まかなスクリプト↓ (ArchLinuxで動作)</p>
+<pre><code>mkdir forge &amp;&amp; cd forge
+sudo pacman -S wget unzip jdk17-openjdk
+wget https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.0/forge-1.20.1-47.4.0-installer.jar
+wget -O mod.zip &quot;https://drive.usercontent.google.com/download?id=1c7ArgNKT43yd9h716fiJRWN1ron-z4d4&amp;export=download&amp;authuser=0&amp;confirm=t&amp;uuid=23f09a2d-97d6-46e0-aec5-bb13dc371d91&amp;at=AN8xHoqmeBBTO34aGJN1XkHh_FVT%3A1758898476233&quot;
+unzip mod.zip
+echo &quot;-Xmx3G&quot; &gt; user_jvm_args.txt
+echo &quot;eula=true&quot; &gt; eula.txt
+java -jar forge-1.20.1-47.4.0-installer.jar --installServer</code></pre>
+<p><code>-Xmx</code>で割り当てるメモリを調整する。</p>
+<p>オフラインアカウントで遊ぶ場合は<code>server.properties</code>の<code>online-mode</code>を<code>true</code>にする。ただしアカウントのスキンが反映されなくなる。<br />
+mod.zipは各自用意。modernfix、ferritecore,memoryleakfixは必ず入れた方がいい。</p>
+
+</body>
+</html>

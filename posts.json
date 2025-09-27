@@ -1,5 +1,15 @@
 [
   {
+    "title": "MinecraftのForgeサーバーをサクっと建てる",
+    "date": "2025-09-27",
+    "tags": [
+      "Linux",
+      "minecraft",
+      "server"
+    ],
+    "url": "public/forge-server.html"
+  },
+  {
     "title": "広告ブロッカーでもう二度と広告を見ない",
     "date": "2025-09-24",
     "tags": [
