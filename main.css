@@ -51,5 +51,17 @@ body{
     .post-title{
         color:white;
     }
-	
+	.info a{
+		color:white;
+	}
+	.logo a{
+		color:white;
+	}
+	.powered a{
+		color:white;
+	}
+	#posts a{
+		color:white;
+	}
+
 }
