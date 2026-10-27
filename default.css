@@ -160,7 +160,7 @@ input.center {
         --dark: #eee;
         --moredark: #fefefe;
     }
-    .post_title{
+    .post-title{
         color:white;
     }
     /* This fixes an odd blue then white shadow on FF in dark mode */
